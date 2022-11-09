@@ -59,6 +59,19 @@ function playRound() {
     return rpsResult;
 }
 
+function keepScore(round) {
+    // Tally score based on winner.
+    if (round === "CPU Wins!") {
+        computerScore++;
+        console.log(`The CPU has ${computerScore} point(s).`);
+    } else if (round === "You Wins!!") {
+        playerScore++
+        console.log(`You have ${playerScore} point(s)`);
+    } else {
+        console.log("No Score");
+    }
+}
+
 function game() {
     // Plays 5 rounds of rock paper scissors
     computerScore = 0;
@@ -66,15 +79,7 @@ function game() {
 
     for (let i = 0; i < 5; i++) {
         roundScore = playRound();
-        if (roundScore === "CPU Wins!") {
-            computerScore++;
-            console.log(`The CPU has ${computerScore} point(s).`);
-        } else if (roundScore === "You Wins!!") {
-            playerScore++
-            console.log(`You have ${playerScore} point(s)`);
-        } else {
-            console.log("No Score");
-        }
+        keepScore(roundScore);
     }
 
     console.log(`Game over. CPU has ${computerScore} points and you have ${playerScore} points.`)
