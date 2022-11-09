@@ -1,7 +1,6 @@
-const computerSelection = getComputerChoice();
-const playerSelection = getPlayerChoice();
+// const computerSelection = getComputerChoice();
+// const playerSelection = getPlayerChoice();
 
-console.log(computerSelection)
 
 function getRandomInt() {
     // Returns a random Int between 0 and 2.
@@ -13,13 +12,14 @@ function getComputerChoice() {
     randomNumber = getRandomInt()
     console.log(randomNumber)
     if (randomNumber === 0) {
-        computerSelection = "ROCK";
+        result = "ROCK";
     } else if (randomNumber === 1) {
-        computerSelection = "PAPER";
+        result = "PAPER";
     } else {
-        computerSelection = "SCISSORS";
+        result = "SCISSORS";
     }
-    return computerSelection;
+    console.log(result)
+    return result;
 }
 
 function getPlayerChoice() {
@@ -31,6 +31,10 @@ function getPlayerChoice() {
         playerSelection = prompt("Try again. Rock, paper, or scissors only:");
         playerSelection = playerSelection.toUpperCase();
     }
-    console.log(playerSelection)
+    // console.log(playerSelection)
     return playerSelection;
 }
+
+
+const computerSelection = getComputerChoice();
+console.log(computerSelection)
