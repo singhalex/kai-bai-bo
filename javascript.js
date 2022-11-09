@@ -1,7 +1,3 @@
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-
-
 function getRandomInt() {
     // Returns a random Int between 0 and 2.
     return Math.floor(Math.random() * 3);
@@ -55,8 +51,12 @@ function compareChoice(cpu, player) {
     return winner
 } 
 
+function game() {
+    // Plays 5 rounds of rock paper scissors
+    const playerSelection = getPlayerChoice();
+    const computerSelection = getComputerChoice();
 
+    console.log(compareChoice(computerSelection, playerSelection));
+}
 
-console.log(compareChoice(computerSelection, playerSelection))
-
-// function game()
+game()
