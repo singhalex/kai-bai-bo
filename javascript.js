@@ -51,12 +51,16 @@ function compareChoice(cpu, player) {
     return winner
 } 
 
-function game() {
-    // Plays 5 rounds of rock paper scissors
+function playRound() {
     const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
+    let rpsResult = compareChoice(computerSelection, playerSelection);
+    console.log(rpsResult)
+}
 
-    console.log(compareChoice(computerSelection, playerSelection));
+function game() {
+    // Plays 5 rounds of rock paper scissors
+    playRound();
 }
 
 game()
