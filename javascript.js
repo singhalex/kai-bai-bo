@@ -33,6 +33,8 @@ function getPlayerChoice() {
 }
 
 function playRound(computerSelection, playerSelection) {
+    /* Takes the computer choice and the player choice and determines the winner
+    returning a message based on the winner. */
     console.log(playerSelection);
     console.log(`CPU picks ${computerSelection}`)
     if (playerSelection === computerSelection) {
