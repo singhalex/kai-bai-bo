@@ -1,5 +1,5 @@
-const computerSelection = getComputerChoice();
 const playerSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
 
 
 function getRandomInt() {
@@ -17,6 +17,7 @@ function getComputerChoice() {
     } else {
         result = "SCISSORS";
     }
+    console.log(`CPU has selected ${result}`)
     return result;
 }
 
@@ -29,14 +30,13 @@ function getPlayerChoice() {
         input = prompt("Try again. Rock, paper, or scissors only:");
         input = input.toUpperCase();
     }
+    console.log(`You've selected ${input}`)
     return input;
 }
 
 function playRound(computerSelection, playerSelection) {
     /* Takes the computer choice and the player choice and determines the winner
     returning a message based on the winner. */
-    console.log(playerSelection);
-    console.log(`CPU picks ${computerSelection}`)
     if (playerSelection === computerSelection) {
         winner = "It's a tie!"
     } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
@@ -55,4 +55,6 @@ function playRound(computerSelection, playerSelection) {
     return winner
 } 
 
-playRound(computerSelection, playerSelection);
+console.log(playRound(playerSelection, computerSelection))
+
+// function game()
