@@ -34,20 +34,20 @@ function getPlayerChoice() {
     return input;
 }
 
-function playRound(computerSelection, playerSelection) {
+function compareChoice(cpu, player) {
     /* Takes the computer choice and the player choice and determines the winner
     returning a message based on the winner. */
-    if (playerSelection === computerSelection) {
+    if (player === cpu) {
         winner = "It's a tie!"
-    } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
+    } else if (player === "ROCK" && cpu === "PAPER") {
         winner = "CPU Wins!";
-    } else if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
+    } else if (player === "ROCK" && cpu === "SCISSORS") {
         winner = "You Wins!!";
-    } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
+    } else if (player === "PAPER" && cpu === "ROCK") {
         winner = "You Wins!";
-    } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
+    } else if (player === "PAPER" && cpu === "SCISSORS") {
         winner = "CPU Wins!"
-    } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
+    } else if (player === "SCISSORS" && cpu === "ROCK") {
         winner = "CPU Wins!"
     } else {
         winner = "You Wins!!"
@@ -55,6 +55,8 @@ function playRound(computerSelection, playerSelection) {
     return winner
 } 
 
-console.log(playRound(playerSelection, computerSelection))
+
+
+console.log(compareChoice(computerSelection, playerSelection))
 
 // function game()
