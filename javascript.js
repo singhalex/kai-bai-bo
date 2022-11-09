@@ -55,12 +55,14 @@ function playRound() {
     const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
     let rpsResult = compareChoice(computerSelection, playerSelection);
-    console.log(rpsResult)
+    console.log(rpsResult);
 }
 
 function game() {
     // Plays 5 rounds of rock paper scissors
-    playRound();
+    for (let i = 0; i < 5; i++) {
+        playRound();
+    }
 }
 
 game()
