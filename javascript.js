@@ -1,5 +1,5 @@
-// const computerSelection = getComputerChoice();
-// const playerSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
+const playerSelection = getPlayerChoice();
 
 
 function getRandomInt() {
@@ -10,7 +10,6 @@ function getRandomInt() {
 function getComputerChoice() {
     // Randomly returns ROCK, PAPER, or SCISSORS.
     randomNumber = getRandomInt()
-    console.log(randomNumber)
     if (randomNumber === 0) {
         result = "ROCK";
     } else if (randomNumber === 1) {
@@ -18,23 +17,21 @@ function getComputerChoice() {
     } else {
         result = "SCISSORS";
     }
-    console.log(result)
     return result;
 }
 
 function getPlayerChoice() {
     // Returns user entered value in all upper case and only accepts rock, paper, or scissors.
-    ;playerSelection = prompt("Choose Rock, Paper, or Scissors:")
-    playerSelection = playerSelection.toUpperCase();
+    input = prompt("Choose Rock, Paper, or Scissors:")
+    input = input.toUpperCase();
 
-    while (playerSelection != "ROCK" && playerSelection != "PAPER" && playerSelection != "SCISSORS") {
-        playerSelection = prompt("Try again. Rock, paper, or scissors only:");
-        playerSelection = playerSelection.toUpperCase();
+    while (input != "ROCK" && input != "PAPER" && input != "SCISSORS") {
+        input = prompt("Try again. Rock, paper, or scissors only:");
+        input = input.toUpperCase();
     }
-    // console.log(playerSelection)
-    return playerSelection;
+    return input;
 }
 
 
-const computerSelection = getComputerChoice();
+// const computerSelection = getComputerChoice();
 console.log(computerSelection)
