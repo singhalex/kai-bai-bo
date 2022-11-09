@@ -32,6 +32,25 @@ function getPlayerChoice() {
     return input;
 }
 
+function playRound(computerSelection, playerSelection) {
+    console.log(playerSelection);
+    console.log(`CPU picks ${computerSelection}`)
+    if (playerSelection === computerSelection) {
+        winner = "It's a tie!"
+    } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
+        winner = "CPU Wins!";
+    } else if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
+        winner = "You Wins!!";
+    } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
+        winner = "You Wins!";
+    } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
+        winner = "CPU Wins!"
+    } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
+        winner = "CPU Wins!"
+    } else {
+        winner = "You Wins!!"
+    }
+    return winner
+} 
 
-// const computerSelection = getComputerChoice();
-console.log(computerSelection)
+playRound(computerSelection, playerSelection);
