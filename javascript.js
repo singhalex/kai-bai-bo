@@ -1,3 +1,7 @@
+const playerWin = "You Wins!!";
+const cpuWin = "CPU Wins!";
+const tie = "It's a tie!"
+
 function getRandomInt() {
     // Returns a random Int between 0 and 2.
     return Math.floor(Math.random() * 3);
@@ -34,19 +38,19 @@ function compareChoice(cpu, player) {
     /* Takes the computer choice and the player choice and determines the winner
     returning a message based on the winner. */
     if (player === cpu) {
-        winner = "It's a tie!"
+        winner = tie;
     } else if (player === "ROCK" && cpu === "PAPER") {
-        winner = "CPU Wins!";
+        winner = cpuWin;
     } else if (player === "ROCK" && cpu === "SCISSORS") {
-        winner = "You Wins!!";
+        winner = playerWin;
     } else if (player === "PAPER" && cpu === "ROCK") {
-        winner = "You Wins!!";
+        winner = playerWin;
     } else if (player === "PAPER" && cpu === "SCISSORS") {
-        winner = "CPU Wins!"
+        winner = cpuWin;
     } else if (player === "SCISSORS" && cpu === "ROCK") {
-        winner = "CPU Wins!!"
+        winner = cpuWin;
     } else {
-        winner = "You Wins!!"
+        winner = playerWin;
     }
     return winner
 } 
@@ -61,10 +65,10 @@ function playRound() {
 
 function keepScore(round) {
     // Tally score based on winner.
-    if (round === "CPU Wins!") {
+    if (round === cpuWin) {
         computerScore++;
         console.log(`The CPU has ${computerScore} point(s).`);
-    } else if (round === "You Wins!!") {
+    } else if (round === playerWin) {
         playerScore++
         console.log(`You have ${playerScore} point(s)`);
     } else {
