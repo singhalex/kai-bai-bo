@@ -40,11 +40,11 @@ function compareChoice(cpu, player) {
     } else if (player === "ROCK" && cpu === "SCISSORS") {
         winner = "You Wins!!";
     } else if (player === "PAPER" && cpu === "ROCK") {
-        winner = "You Wins!";
+        winner = "You Wins!!";
     } else if (player === "PAPER" && cpu === "SCISSORS") {
         winner = "CPU Wins!"
     } else if (player === "SCISSORS" && cpu === "ROCK") {
-        winner = "CPU Wins!"
+        winner = "CPU Wins!!"
     } else {
         winner = "You Wins!!"
     }
@@ -56,13 +56,28 @@ function playRound() {
     const computerSelection = getComputerChoice();
     let rpsResult = compareChoice(computerSelection, playerSelection);
     console.log(rpsResult);
+    return rpsResult;
 }
 
 function game() {
     // Plays 5 rounds of rock paper scissors
+    computerScore = 0;
+    playerScore = 0;
+
     for (let i = 0; i < 5; i++) {
-        playRound();
+        roundScore = playRound();
+        if (roundScore === "CPU Wins!") {
+            computerScore++;
+            console.log(`The CPU has ${computerScore} point(s).`);
+        } else if (roundScore === "You Wins!!") {
+            playerScore++
+            console.log(`You have ${playerScore} point(s)`);
+        } else {
+            console.log("No Score");
+        }
     }
-}
+
+    console.log(`Game over. CPU has ${computerScore} points and you have ${playerScore} points.`)
+    }
 
 game()
