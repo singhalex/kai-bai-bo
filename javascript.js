@@ -49,10 +49,11 @@ function compareChoice(cpu, player) {
     return winner
 } 
 
-function playRound() {
-    const playerSelection = getPlayerChoice();
+function playRound(playerSelection) {
+    // const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
     let rpsResult = compareChoice(computerSelection, playerSelection);
+    console.log(`You've selected: ${playerSelection}`)
     console.log(rpsResult);
     return rpsResult;
 }
@@ -83,4 +84,14 @@ function game() {
     console.log(`Game over. CPU has ${computerScore} points and you have ${playerScore} points.`)
     }
 
-game()
+// game()
+
+let rock = document.querySelector('#rock').addEventListener('click', () => {
+    playRound("ROCK")
+})
+let paper = document.querySelector('#paper').addEventListener('click', () => {
+    playRound("PAPER")
+})
+let scissors = document.querySelector('#scissors').addEventListener('click', () => {
+    playRound("SCISSORS")
+})
