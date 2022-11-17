@@ -39,16 +39,10 @@ function compareChoice(cpu, player) {
     returning a message based on the winner. */
     if (player === cpu) {
         winner = tie;
-    } else if (player === "ROCK" && cpu === "PAPER") {
+    } else if ((player === "ROCK" && cpu === "PAPER") || (player === "PAPER" && cpu === "SCISSORS") || (player === "SCISSORS" && cpu === "ROCK")) {
         winner = cpuWin;
-    } else if (player === "ROCK" && cpu === "SCISSORS") {
+    } else if ((player === "ROCK" && cpu === "SCISSORS") || (player === "PAPER" && cpu === "ROCK")) {
         winner = playerWin;
-    } else if (player === "PAPER" && cpu === "ROCK") {
-        winner = playerWin;
-    } else if (player === "PAPER" && cpu === "SCISSORS") {
-        winner = cpuWin;
-    } else if (player === "SCISSORS" && cpu === "ROCK") {
-        winner = cpuWin;
     } else {
         winner = playerWin;
     }
