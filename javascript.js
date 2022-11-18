@@ -1,6 +1,15 @@
 const playerWin = "You Wins!!";
 const cpuWin = "CPU Wins!";
 const tie = "It's a tie!"
+const score = document.createElement("p");
+const container = document.querySelector("#container");
+const cpuSelectionDeclaration = document.createElement("p");
+const playerSelectionDeclaration = document.createElement("p");
+
+score.textContent = "Hello";
+
+container.appendChild(cpuSelectionDeclaration);
+container.appendChild(playerSelectionDeclaration);
 
 function getRandomInt() {
     // Returns a random Int between 0 and 2.
@@ -17,7 +26,7 @@ function getComputerChoice() {
     } else {
         result = "SCISSORS";
     }
-    console.log(`CPU has selected ${result}`)
+    cpuSelectionDeclaration.textContent = `CPU has selected ${result}`
     return result;
 }
 
@@ -30,7 +39,8 @@ function getPlayerChoice() {
         input = prompt("Try again. Rock, paper, or scissors only:");
         input = input.toUpperCase();
     }
-    console.log(`You've selected ${input}`)
+    // console.log(`You've selected ${input}`)
+    playerSelectionDeclaration = `You've selected ${input}`
     return input;
 }
 
@@ -86,12 +96,20 @@ function game() {
 
 // game()
 
-let rock = document.querySelector('#rock').addEventListener('click', () => {
-    playRound("ROCK")
+let rock = document.querySelector('#rock')
+rock.addEventListener('click', () => {
+    playRound(rock.id.toUpperCase())
+    playerSelectionDeclaration.textContent = `You've selected ${rock.id.toUpperCase()}`
 })
-let paper = document.querySelector('#paper').addEventListener('click', () => {
-    playRound("PAPER")
+
+let paper = document.querySelector('#paper')
+paper.addEventListener('click', () => {
+    playRound(paper.id.toUpperCase())
+    playerSelectionDeclaration.textContent = `You've selected ${paper.id.toUpperCase()}`
 })
-let scissors = document.querySelector('#scissors').addEventListener('click', () => {
-    playRound("SCISSORS")
+
+let scissors = document.querySelector('#scissors')
+scissors.addEventListener('click', () => {
+    playRound(scissors.id.toUpperCase())
+    playerSelectionDeclaration.textContent = `You've selected ${scissors.id.toUpperCase()}`
 })
