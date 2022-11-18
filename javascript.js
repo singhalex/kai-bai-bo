@@ -5,11 +5,26 @@ const score = document.createElement("p");
 const container = document.querySelector("#container");
 const cpuSelectionDeclaration = document.createElement("p");
 const playerSelectionDeclaration = document.createElement("p");
+const results = document.createElement("p");
+const cpuScoreBoard = document.querySelector("#cpu-score-board");
+const playerScoreBoard = document.querySelector("#player-score-board");
+const cpuScoreBoardCounter = document.createElement("p");
+cpuScoreBoardCounter.innerText = 0;
+cpuScoreBoardCounter.style.fontSize = "34px";
+const playerScoreBoardCounter = document.createElement("p");
+playerScoreBoardCounter.innerText = 0;
+playerScoreBoardCounter.style.fontSize = "34px";
+
+let cpuScore = 0;
+let playerScore = 0;
 
 score.textContent = "Hello";
 
 container.appendChild(cpuSelectionDeclaration);
 container.appendChild(playerSelectionDeclaration);
+container.appendChild(results)
+cpuScoreBoard.appendChild(cpuScoreBoardCounter);
+playerScoreBoard.appendChild(playerScoreBoardCounter);
 
 function getRandomInt() {
     // Returns a random Int between 0 and 2.
@@ -39,8 +54,7 @@ function getPlayerChoice() {
         input = prompt("Try again. Rock, paper, or scissors only:");
         input = input.toUpperCase();
     }
-    // console.log(`You've selected ${input}`)
-    playerSelectionDeclaration = `You've selected ${input}`
+    playerSelectionDeclaration.textContent = `You've selected ${input}`
     return input;
 }
 
@@ -59,42 +73,45 @@ function compareChoice(cpu, player) {
     return winner
 } 
 
-function playRound(playerSelection) {
-    // const playerSelection = getPlayerChoice();
-    const computerSelection = getComputerChoice();
-    let rpsResult = compareChoice(computerSelection, playerSelection);
-    console.log(`You've selected: ${playerSelection}`)
-    console.log(rpsResult);
-    return rpsResult;
-}
-
 function keepScore(round) {
     // Tally score based on winner.
     if (round === cpuWin) {
-        computerScore++;
-        console.log(`The CPU has ${computerScore} point(s).`);
+        cpuScore++;
+        cpuScoreBoardCounter.innerText = cpuScore;
     } else if (round === playerWin) {
-        playerScore++
-        console.log(`You have ${playerScore} point(s)`);
-    } else {
-        console.log("No Score");
+        playerScore++;
+        playerScoreBoardCounter.innerText = playerScore;
     }
 }
 
-function game() {
-    // Plays 5 rounds of rock paper scissors
-    computerScore = 0;
-    playerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        roundScore = playRound();
-        keepScore(roundScore);
+function whoWon(playerScore, cpuScore) {
+    // Declare winner
+    if (playerScore === 5) {
+        results.innerText = "You win the game!";
+        results.style.fontSize = "40px";
+    } else if (cpuScore === 5) {
+        results.innerHTML = "You lost the game :(";
+        results.style.fontSize = "40px";
     }
 
-    console.log(`Game over. CPU has ${computerScore} points and you have ${playerScore} points.`)
+    if (playerScore === 5 || cpuScore === 5) {
+        return true;
     }
+}
 
-// game()
+function playRound(playerSelection) {
+    const computerSelection = getComputerChoice();
+    let rpsResult = compareChoice(computerSelection, playerSelection);
+    results.textContent = rpsResult;
+    keepScore(rpsResult);
+     if (whoWon(playerScore, cpuScore)) {
+        // Reset score if winner declared
+        playerScore = 0;
+        playerScoreBoardCounter.innerText = "";
+        cpuScore = 0;
+        cpuScoreBoardCounter.innerText = "";
+     }
+}
 
 let rock = document.querySelector('#rock')
 rock.addEventListener('click', () => {
